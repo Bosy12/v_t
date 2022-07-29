@@ -2,16 +2,23 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-07-29T16:22:36 EET" name="ValeoT1" finished-at="2022-07-29T16:22:43 EET" duration-ms="6588">
+  <suite started-at="2022-07-29T18:26:20 EET" name="ValeoT1" finished-at="2022-07-29T18:26:27 EET" duration-ms="6735">
     <groups>
     </groups>
-    <test started-at="2022-07-29T16:22:36 EET" name="HelloWorldTest" finished-at="2022-07-29T16:22:43 EET" duration-ms="6588">
+    <test started-at="2022-07-29T18:26:20 EET" name="HelloWorldTest" finished-at="2022-07-29T18:26:27 EET" duration-ms="6735">
       <class name="API_RestAssuredProject.RestAssured.AppTest">
-        <test-method is-config="true" signature="getRandomUser()[pri:0, instance:API_RestAssuredProject.RestAssured.AppTest@437da279]" started-at="2022-07-29T16:22:36 EET" name="getRandomUser" finished-at="2022-07-29T16:22:37 EET" duration-ms="353" status="PASS">
+        <test-method is-config="true" signature="getRandomUser(java.lang.String)[pri:0, instance:API_RestAssuredProject.RestAssured.AppTest@437da279]" started-at="2022-07-29T18:26:20 EET" name="getRandomUser" finished-at="2022-07-29T18:26:22 EET" duration-ms="1897" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[https://jsonplaceholder.typicode.com]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getRandomUser -->
-        <test-method signature="doUserPost(java.lang.String,java.lang.String)[pri:0, instance:API_RestAssuredProject.RestAssured.AppTest@437da279]" started-at="2022-07-29T16:22:37 EET" name="doUserPost" finished-at="2022-07-29T16:22:42 EET" duration-ms="4786" status="PASS">
+        <test-method signature="doUserPost(java.lang.String,java.lang.String)[pri:0, instance:API_RestAssuredProject.RestAssured.AppTest@437da279]" started-at="2022-07-29T18:26:22 EET" name="doUserPost" finished-at="2022-07-29T18:26:26 EET" duration-ms="3588" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,11 +34,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- doUserPost -->
-        <test-method signature="getUserEmail()[pri:0, instance:API_RestAssuredProject.RestAssured.AppTest@437da279]" started-at="2022-07-29T16:22:42 EET" name="getUserEmail" finished-at="2022-07-29T16:22:42 EET" duration-ms="732" status="PASS">
+        <test-method signature="getUserEmail()[pri:0, instance:API_RestAssuredProject.RestAssured.AppTest@437da279]" started-at="2022-07-29T18:26:26 EET" name="getUserEmail" finished-at="2022-07-29T18:26:26 EET" duration-ms="632" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getUserEmail -->
-        <test-method signature="getUserPosts()[pri:0, instance:API_RestAssuredProject.RestAssured.AppTest@437da279]" started-at="2022-07-29T16:22:42 EET" name="getUserPosts" finished-at="2022-07-29T16:22:43 EET" duration-ms="596" status="PASS">
+        <test-method signature="getUserPosts()[pri:0, instance:API_RestAssuredProject.RestAssured.AppTest@437da279]" started-at="2022-07-29T18:26:26 EET" name="getUserPosts" finished-at="2022-07-29T18:26:27 EET" duration-ms="504" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getUserPosts -->

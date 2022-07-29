@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [ValeoT1]" guice-stage="DEVELOPMENT">
+  <parameter name="endPoint" value="https://jsonplaceholder.typicode.com"/>
   <test thread-count="5" parallel="methods" name="HelloWorldTest(failed)">
+    <parameter name="Title" value="test title"/>
+    <parameter name="Body" value="body test"/>
     <classes>
       <class name="API_RestAssuredProject.RestAssured.AppTest">
         <methods>
           <include name="getRandomUser"/>
+          <include name="getUserEmail"/>
+          <include name="getUserPosts"/>
           <include name="doUserPost"/>
         </methods>
       </class> <!-- API_RestAssuredProject.RestAssured.AppTest -->
