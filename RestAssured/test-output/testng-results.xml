@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-07-29T18:26:20 EET" name="ValeoT1" finished-at="2022-07-29T18:26:27 EET" duration-ms="6735">
+  <suite started-at="2022-07-29T18:42:46 EET" name="ValeoT1" finished-at="2022-07-29T18:42:55 EET" duration-ms="8821">
     <groups>
     </groups>
-    <test started-at="2022-07-29T18:26:20 EET" name="HelloWorldTest" finished-at="2022-07-29T18:26:27 EET" duration-ms="6735">
+    <test started-at="2022-07-29T18:42:46 EET" name="HelloWorldTest" finished-at="2022-07-29T18:42:55 EET" duration-ms="8821">
       <class name="API_RestAssuredProject.RestAssured.AppTest">
-        <test-method is-config="true" signature="getRandomUser(java.lang.String)[pri:0, instance:API_RestAssuredProject.RestAssured.AppTest@437da279]" started-at="2022-07-29T18:26:20 EET" name="getRandomUser" finished-at="2022-07-29T18:26:22 EET" duration-ms="1897" status="PASS">
+        <test-method is-config="true" signature="getRandomUser(java.lang.String)[pri:0, instance:API_RestAssuredProject.RestAssured.AppTest@437da279]" started-at="2022-07-29T18:42:47 EET" name="getRandomUser" finished-at="2022-07-29T18:42:48 EET" duration-ms="1307" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,7 +18,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getRandomUser -->
-        <test-method signature="doUserPost(java.lang.String,java.lang.String)[pri:0, instance:API_RestAssuredProject.RestAssured.AppTest@437da279]" started-at="2022-07-29T18:26:22 EET" name="doUserPost" finished-at="2022-07-29T18:26:26 EET" duration-ms="3588" status="PASS">
+        <test-method signature="getUserEmail()[pri:1, instance:API_RestAssuredProject.RestAssured.AppTest@437da279]" started-at="2022-07-29T18:42:48 EET" name="getUserEmail" finished-at="2022-07-29T18:42:54 EET" duration-ms="6388" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserEmail -->
+        <test-method signature="getUserPosts()[pri:2, instance:API_RestAssuredProject.RestAssured.AppTest@437da279]" started-at="2022-07-29T18:42:54 EET" name="getUserPosts" finished-at="2022-07-29T18:42:55 EET" duration-ms="523" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserPosts -->
+        <test-method signature="doUserPost(java.lang.String,java.lang.String)[pri:3, instance:API_RestAssuredProject.RestAssured.AppTest@437da279]" started-at="2022-07-29T18:42:55 EET" name="doUserPost" finished-at="2022-07-29T18:42:55 EET" duration-ms="532" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -34,14 +42,6 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- doUserPost -->
-        <test-method signature="getUserEmail()[pri:0, instance:API_RestAssuredProject.RestAssured.AppTest@437da279]" started-at="2022-07-29T18:26:26 EET" name="getUserEmail" finished-at="2022-07-29T18:26:26 EET" duration-ms="632" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getUserEmail -->
-        <test-method signature="getUserPosts()[pri:0, instance:API_RestAssuredProject.RestAssured.AppTest@437da279]" started-at="2022-07-29T18:26:26 EET" name="getUserPosts" finished-at="2022-07-29T18:26:27 EET" duration-ms="504" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getUserPosts -->
       </class> <!-- API_RestAssuredProject.RestAssured.AppTest -->
     </test> <!-- HelloWorldTest -->
   </suite> <!-- ValeoT1 -->

@@ -31,7 +31,7 @@ public class AppTest {
 		RestAssured.baseURI = endPoint;
 	}
 
-	@Test
+	@Test(priority = 1)
 	public void getUserEmail() throws JsonMappingException, JsonProcessingException {
 
 		Response vr = given().headers("Content-Type", "application/json; charset=utf-8").when().get("/users/" + userid)
@@ -43,7 +43,7 @@ public class AppTest {
 
 	}
 
-	@Test
+	@Test(priority = 2)
 	public void getUserPosts() throws JsonMappingException, JsonProcessingException {
 
 		Response vr = given().headers("Content-Type", "application/json; charset=utf-8")
@@ -54,11 +54,13 @@ public class AppTest {
 
 		for (int pindex = 0; pindex < posts.length; pindex++) {
 			assertTrue(posts[pindex].getId() >= 1 && posts[pindex].getId() <= 100);
+			
 		}
-
+System.out.println("Number of this user posts: =  "+posts.length );
+System.out.println("Posts" +posts.toString());
 	}
 
-	@Test
+	@Test(priority = 3)
 	@Parameters({ "Title", "Body" })
 	public void doUserPost(String Title, String Body) throws JsonProcessingException {
 		Post post = new Post();
