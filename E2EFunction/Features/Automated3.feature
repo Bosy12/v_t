@@ -1,6 +1,0 @@
-Feature: Searching for 'Cars in london' in google
-
-  Scenario: perform a search for Cars in London 2
-    Given Having Search results
-    When getting how many Ad links there
-    Then the Ad number shall be more than 0

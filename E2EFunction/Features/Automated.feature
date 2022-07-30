@@ -8,10 +8,11 @@ Feature: Searching for 'Cars in london' in google
     And getting all search results displayed for the first search page
     And get how many Ad link  
     And confirm the title is displayed
-    And Clean Up Session
-Examples:                      		
-    |SearchText    			|
-		|Cars in london     |
+    And Clean Up Session 
+    
+		Examples:                      		
+    	| SearchText		|
+			| Cars in london|
 		
 		
  

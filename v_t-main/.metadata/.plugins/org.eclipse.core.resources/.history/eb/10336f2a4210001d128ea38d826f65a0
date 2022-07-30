@@ -1,0 +1,20 @@
+Feature: Searching for 'Cars in london' in google
+@tag
+  Scenario: perform a search for Cars in London
+    Given open Google
+    And verify that Search input is appeared
+    When perform a search with <SearchText>
+    Then Search results Shall be appeared
+    And getting all search results displayed for the first search page
+    And get how many Ad link  
+    And confirm the title is displayed
+    And Clean Up Session
+    
+		Examples:                      		
+    	| SearchText		|
+			| Cars in london|
+		
+		
+ 
+		
+    
