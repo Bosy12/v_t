@@ -4,6 +4,8 @@
 
 2. project v_t_main target is to automate remote api consuming for (get user , get posts and place and new post )
   ![image](https://user-images.githubusercontent.com/46898914/181996039-25cdd469-034b-49c2-a739-8d1df8e908a4.png)
+  
+3. Docs Contains excel sheets with the required reports ( note : there are serval sheets in each file )
 
 *Prerequisite*
 
