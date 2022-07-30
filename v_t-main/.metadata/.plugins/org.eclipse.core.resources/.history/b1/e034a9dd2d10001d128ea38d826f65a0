@@ -1,0 +1,99 @@
+package E2EFunction;
+
+import static org.testng.Assert.assertTrue;
+
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.testng.asserts.SoftAssert;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class browsersetup {
+
+	Engine engine;
+	List<WebElement> allLinks;
+	LinkedList<String> allAdsLinks;
+	WebPage googlepage;
+	WebElement searchInputElement;
+
+	@Given("^open Google$")
+	public void setupdriver() throws InterruptedException, IOException {
+		engine = new Engine();
+		googlepage = new WebPage(engine);
+		googlepage.Open("http://www.google.com/");
+
+	}
+
+	@Given("^verify that Search input is appeared$")
+	public void search() {
+
+		WebElement searchInputElement = googlepage.find("searchinput.cssSelector").get(0);
+
+		assertTrue(searchInputElement.isDisplayed());
+
+	}
+
+	@When("^perform a search with (.*)$")
+	public void searchkeyword(String SearchText) {
+
+		searchInputElement.sendKeys(SearchText);
+		searchInputElement.sendKeys(Keys.ENTER);
+
+	}
+
+	@Then("^Search results Shall be appeared$")
+	public void getAllResults() {
+		allLinks = googlepage.find("Alllink.cssSelector");
+
+		assertTrue(allLinks.size() > 0);
+	}
+
+	@Then("^getting all search results displayed for the first search page$")
+	public void validateResultAppearance() {
+
+		allAdsLinks = new LinkedList<String>();
+		System.out.println("number of All Links  " + allLinks.size());
+		for (WebElement link : allLinks) {
+			if (link.getAttribute("data-pcu") != null) {
+				allAdsLinks.add(link.getAttribute("href"));
+			}
+		}
+
+	}
+
+	@Then("^get how many Ad link$")
+	@And("^confirm the title is displayed$")
+	public void validateADResult() {
+		SoftAssert softAssertion = new SoftAssert();
+
+		String Title = "";
+//		// number of ads
+		System.out.println("number of Ads: " + allAdsLinks.size());
+		for (String href : allAdsLinks) {
+			engine.driver.navigate().to(href);
+			Title = engine.driver.getTitle();
+			System.out.println("title of " + href + " :  " + Title);
+
+			// softAssertion.assertTrue(Title != null && !Title.isEmpty());
+
+		}
+
+		softAssertion.assertAll();
+
+	}
+
+	@Then("^Clean Up Session$")
+	public void CleanUpSession() {
+
+		engine.Cleanup();
+
+	}
+
+}

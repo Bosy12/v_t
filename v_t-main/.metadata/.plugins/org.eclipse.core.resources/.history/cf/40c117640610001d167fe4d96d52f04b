@@ -1,0 +1,12 @@
+package TestRunner;
+
+	import org.junit.runner.RunWith;		
+
+	//@RunWith(Cucumber.class)				
+	@io.cucumber.junit.CucumberOptions(features="Automated",glue={"googlesearch"})						
+	public class runner 				
+	{		
+
+	}
+
+

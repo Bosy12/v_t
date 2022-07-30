@@ -1,0 +1,46 @@
+package E2EFunction;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Engine {
+	Properties obj;
+	private WebDriver driver;
+	
+	public Engine() throws IOException {
+		obj = new Properties();
+		FileInputStream objfile = new FileInputStream(System.getProperty("user.dir") + "/object_repo.properties");
+		obj.load(objfile);
+		
+		System.setProperty("webdriver.chrome.driver", "driver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+	}
+
+	By getByFromObjRepo(String obid) {
+		By byObj = null;
+		String dbid = obj.getProperty(obid);
+		switch (obid.split(".")[1]) {
+		case "id":
+			byObj = By.id(dbid);
+			break;
+		case "className":
+			byObj = By.className(dbid);
+			break;
+		case "cssSelector":
+			byObj = By.cssSelector(dbid);
+			break;
+		default:
+			return null;
+		}
+		return byObj;
+	}
+	
+}

@@ -1,0 +1,111 @@
+package E2E_Test.E2EFunction;
+
+import static org.testng.Assert.assertNotEquals;
+import static org.testng.Assert.assertTrue;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
+import org.junit.BeforeClass;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class browsersetup {
+	Properties obj;
+	WebDriver driver;
+	String SearchText;
+	String searchinp = obj.getProperty("searchinput.cssSelector");
+
+	@Given("open Google")
+	@BeforeTest
+	public void setupdriver() throws InterruptedException, IOException {
+
+		obj = new Properties();
+		FileInputStream objfile = new FileInputStream(System.getProperty("user.dir") + "/object_repo.properties");
+		obj.load(objfile);
+		System.setProperty("webdriver.chrome.driver", "driver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://www.google.com/");
+
+	}
+
+	@And("verify that Search input is appeared")
+	@Test
+	public void search() {
+
+		WebElement searchinpElement = driver.findElement(By.cssSelector(searchinp));
+		
+		assertTrue(searchinpElement.isDisplayed());
+		//String searchinp = obj.getProperty("searchinput.cssSelector");
+	
+	}
+
+	@When("perform a search")
+	@Parameters({ "SearchText" })
+	@Test(dependsOnMethods = "search")
+	
+	public void searchkeyword(String SearchText)
+	{
+		WebElement searchinpElement = driver.findElement(By.cssSelector(searchinp));
+		searchinpElement.sendKeys(SearchText);
+		searchinpElement.sendKeys(Keys.ENTER);
+
+	}
+	@Then(" Search results Shall be appeared ")
+	public void validateResult() {
+		 List<WebElement> allLinks = driver.findElements(By.tagName("a"));
+		 
+			assertTrue(allLinks.size()>0);
+			
+			System.out.println("number of All Links  " + allLinks.size());
+	}
+	
+		public void validateADResult() {
+		String searchinp = obj.getProperty("ads.cssSelector");
+		
+//XPath = //h3[@class=’CCgQ5 vCa9Yd QfkTvb MUxGbd v0nnCb’]
+		//v5yQqb
+		List<WebElement> searchADSElements = driver.findElements(By.cssSelector(searchinp));
+	
+		for(WebElement link : allLinks)
+		{
+			 System.out.println(link.getText() + " - " + link.getAttribute("href"));
+		}
+		
+		//number of ads 
+		System.out.println("number of Ads: " + searchADSElements.size());
+		
+
+		for (WebElement adsElement : searchADSElements) {
+
+			System.out.println(adsElement.getAttribute("href"));
+
+			try {
+				driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+				adsElement.click();
+
+				assertNotEquals("", driver.getTitle());
+			} catch (Exception exp) {
+
+			}
+		}
+
+	}
+
+}

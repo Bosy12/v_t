@@ -1,0 +1,9 @@
+package TestRunner;
+
+import org.junit.runner.RunWith;
+
+@RunWith()
+@io.cucumber.junit.CucumberOptions(features = "Automated", glue = { "googlesearchsteps" })
+public class runner {
+
+}

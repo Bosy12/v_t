@@ -1,0 +1,110 @@
+package E2EFunction;
+
+import static org.testng.Assert.assertTrue;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.List;
+import java.util.Properties;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class browsersetup {
+	Properties obj;
+	WebDriver driver;
+	List<WebElement> allLinks ;
+	
+
+	@Given("^open Google$")
+	public void setupdriver() throws InterruptedException, IOException {
+		obj = new Properties();
+		FileInputStream objfile = new FileInputStream(System.getProperty("user.dir") + "/object_repo.properties");
+		obj.load(objfile);
+
+		System.setProperty("webdriver.chrome.driver", "driver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://www.google.com/");
+
+	}
+
+	@Given("^verify that Search input is appeared$") 
+	public void search() {
+		String searchinp = obj.getProperty("searchinput.cssSelector");
+		WebElement searchinpElement = driver.findElement(By.cssSelector(searchinp));
+
+		assertTrue(searchinpElement.isDisplayed());
+		// String searchinp = obj.getProperty("searchinput.cssSelector");
+
+	}
+	
+	@When("^perform a search$")
+//	@Parameters({ "SearchText" })
+//	@Test(dependsOnMethods = "search")
+	public void searchkeyword(String SearchText) {
+		String searchinp = obj.getProperty("searchinput.cssSelector");
+		WebElement searchinpElement = driver.findElement(By.cssSelector(searchinp));
+		searchinpElement.sendKeys(SearchText);
+		searchinpElement.sendKeys(Keys.ENTER);
+
+	}
+
+	@Then("^Search results Shall be appeared$")
+	public void validateResultreturned() {
+		 allLinks = driver.findElements(By.tagName("a"));
+		assertTrue(allLinks.size() > 0);
+	}
+
+	@And("^getting all search results displayed for the first search page$")
+	public void validateResultAppearance() {
+		
+		System.out.println("number of All Links  " + allLinks.size());
+		for (WebElement link : allLinks) {
+			System.out.println(link.getText() + " - " + link.getText());
+		}
+
+	}
+
+	@Given("^Having Search results$")
+//	@Test(dependsOnMethods = "validateResultAppearance")
+@When("^getting how many Ad links there$")
+		public void validateADResult() {
+		String searchad = obj.getProperty("ads.cssSelector");
+		List<WebElement> searchADSElements = driver.findElements(By.cssSelector(searchad));
+	
+		
+		//number of ads 
+		System.out.println("number of Ads: " + searchADSElements.size());
+		
+
+		for (WebElement adsElement : searchADSElements) {
+
+			System.out.println(adsElement.getAttribute("href"));
+			
+		//	String Url= adsElement
+			//driver.navigate().to(adsElement);
+
+			/*
+			 * try { driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			 * adsElement.click();
+			 * 
+			 * assertNotEquals("", driver.getTitle()); } catch (Exception exp) {
+			 * 
+			 * }
+			 */
+		}
+
+	}
+
+
+
+}

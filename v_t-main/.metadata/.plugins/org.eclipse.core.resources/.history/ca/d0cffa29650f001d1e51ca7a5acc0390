@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="ValeoT1">
+  <parameter name="endPoint" value="https://jsonplaceholder.typicode.com" />
+	<test name="ValeoT1.TestSuite1.Test1" preserve-order="true" thread-count="1" parallel="methods">
+		<parameter name="Title" value="" />
+		<parameter name="Body" value="body test" />
+		<classes>
+			<class name="API_RestAssuredProject.RestAssured.App" />
+		</classes>
+
+	</test>
+</suite> <!-- Suite -->

@@ -1,0 +1,8 @@
+package E2EFunction;
+
+public class Snippet {
+	public static void main(String[] args) {
+		E2EFunction
+	}
+}
+

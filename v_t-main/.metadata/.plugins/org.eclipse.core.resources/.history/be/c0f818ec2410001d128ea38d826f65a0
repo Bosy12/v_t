@@ -1,0 +1,28 @@
+package E2EFunction;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Properties;
+
+import org.openqa.selenium.By;
+public class Engine{
+	Properties obj;
+	public Engine() throws FileNotFoundException{
+		obj = new Properties();
+		FileInputStream objfile = new FileInputStream(System.getProperty("user.dir") + "/object_repo.properties");
+		obj.load(objfile);
+	}
+public By getByFromObjRepo(String obid) {
+	By byObj = null;
+	String dbid = obj.getProperty("Alllink.cssSelector");
+	switch (obid.split(".")[1])
+			case "id" :
+				byObj= By.id(dbid);
+				break;
+			case "className" :
+				byObj = By.className(dbid);
+				break;
+				default:
+					return null;
+	return byObj;
+}
+}

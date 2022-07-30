@@ -1,0 +1,24 @@
+package E2EFunction;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class WebPage {
+	private Engine engineObj ;
+	private String Url;
+	
+	public WebPage(String url) throws IOException {
+		engineObj = new Engine();
+		this.Url = url;
+	}
+	public void Open() {
+		 
+	}
+	public  List<WebElement> find(String obid) {
+		return engineObj.Driver.findElements(engineObj.getByFromObjRepo(obid));
+		
+	}
+}

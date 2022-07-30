@@ -1,0 +1,10 @@
+package E2EFunction;
+import org.openqa.selenium.By;
+public class Engine{
+	
+public By getByFromObjRepo(String obid) {
+	String dbid = obj.getProperty("Alllink.cssSelector");
+	ByObj = null;
+	return obj.getProperty("Alllink.cssSelector");
+}
+}

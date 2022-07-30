@@ -1,0 +1,6 @@
+Feature: Searching for 'Cars in london' in google
+
+  Scenario: perform a search for Cars in London
+    Given open Google 
+    When perform a search 
+    And getting all search results displayed for the first search page

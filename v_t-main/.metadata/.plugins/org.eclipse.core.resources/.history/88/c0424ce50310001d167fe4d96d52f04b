@@ -1,0 +1,56 @@
+package E2E_Test.E2EFunction;
+
+import static org.testng.Assert.assertNotEquals;
+import static org.testng.Assert.assertTrue;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
+import org.junit.BeforeClass;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class browsersetup {
+	Properties obj;
+
+	@Given("open Google")
+	@BeforeTest
+	public void setupdriver(WebDriver driver) throws InterruptedException, IOException {
+		obj = new Properties();
+		FileInputStream objfile = new FileInputStream(System.getProperty("user.dir") + "/object_repo.properties");
+		obj.load(objfile);
+
+		System.setProperty("webdriver.chrome.driver", "driver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://www.google.com/");
+
+	}
+
+	@And("verify that Search input is appeared")
+	@Test
+	public void search() {
+
+		WebElement searchinpElement = driver.findElement(By.cssSelector(searchinp));
+
+		assertTrue(searchinpElement.isDisplayed());
+		// String searchinp = obj.getProperty("searchinput.cssSelector");
+
+	}
+
+}

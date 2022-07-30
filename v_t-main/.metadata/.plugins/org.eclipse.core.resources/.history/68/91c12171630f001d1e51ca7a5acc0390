@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-07-29T19:24:33 EET" name="ValeoT1.TestSuite1" finished-at="2022-07-29T19:24:36 EET" duration-ms="2772">
+    <groups>
+    </groups>
+    <test started-at="2022-07-29T19:24:33 EET" name="ValeoT1.TestSuite1.Test1" finished-at="2022-07-29T19:24:36 EET" duration-ms="2772">
+      <class name="API_RestAssuredProject.RestAssured.App">
+        <test-method is-config="true" signature="getRandomUser(java.lang.String)[pri:0, instance:API_RestAssuredProject.RestAssured.App@3e58a80e]" started-at="2022-07-29T19:24:33 EET" name="getRandomUser" finished-at="2022-07-29T19:24:34 EET" duration-ms="519" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[https://jsonplaceholder.typicode.com]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getRandomUser -->
+        <test-method signature="getUserEmail()[pri:1, instance:API_RestAssuredProject.RestAssured.App@3e58a80e]" started-at="2022-07-29T19:24:34 EET" name="getUserEmail" finished-at="2022-07-29T19:24:35 EET" duration-ms="1493" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserEmail -->
+        <test-method signature="getUserPosts()[pri:2, instance:API_RestAssuredProject.RestAssured.App@3e58a80e]" started-at="2022-07-29T19:24:35 EET" name="getUserPosts" finished-at="2022-07-29T19:24:35 EET" duration-ms="244" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserPosts -->
+        <test-method signature="doUserPost(java.lang.String,java.lang.String)[pri:3, instance:API_RestAssuredProject.RestAssured.App@3e58a80e]" started-at="2022-07-29T19:24:35 EET" name="doUserPost" finished-at="2022-07-29T19:24:36 EET" duration-ms="479" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[test title]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[body test]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doUserPost -->
+      </class> <!-- API_RestAssuredProject.RestAssured.App -->
+    </test> <!-- ValeoT1.TestSuite1.Test1 -->
+  </suite> <!-- ValeoT1.TestSuite1 -->
+</testng-results>

@@ -1,0 +1,16 @@
+package E2EFunction;
+
+import org.openqa.selenium.WebElement;
+
+public class WebPage {
+	private Engine engineObj ;
+	private String Url;
+	public WebPage(String url) {
+		engineObj = new Engine();
+		this.Url = url;
+	}
+	public  WebElement GetElementByObId(String obid) {
+		return  getByFromObjRepo(obid);
+		
+	}
+}

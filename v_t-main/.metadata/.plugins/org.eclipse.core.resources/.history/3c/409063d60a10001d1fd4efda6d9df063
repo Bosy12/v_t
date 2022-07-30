@@ -1,0 +1,27 @@
+Feature: Searching for 'Cars in london' in google 
+
+Scenario: perform a search for Cars in London
+ 
+Given open Google
+And verify that Search input is appeared
+When perform a search 
+Then Search results Shall be appeared 
+And getting all search results displayed for the first search page 
+
+
+Given Having Search results
+When getting how many Ad links there
+Then the Ad number shall be more than 0 
+
+Feature: confirm the Ad title is displayed
+Given Having Ads in the the search results
+When navigating to each ad link 
+Then Confirm title shall be displayed 
+
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+Feature: Searching for 'Cars in london' in google
+
+  Scenario: perform a search for Cars in London
+    Given open Google
+    And verify that Search input is appeared
+    When perform a search with <SearchText>
+    Then Search results Shall be appeared
+    And getting all search results displayed for the first search page
+    And Having Search results
+Examples:                      		
+    |SearchText    			|
+		|Cars in london     |
+    

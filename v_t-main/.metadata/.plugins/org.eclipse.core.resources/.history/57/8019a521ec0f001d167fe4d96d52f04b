@@ -1,0 +1,13 @@
+Feature:perform a search for Cars in London
+Scenario:Searching for Cars in london 
+Given:open Google verify from that Search engine appeared
+when: perform a search for Cars in London
+then:  Search results Shall be appeared 
+
+Get all search results displayed and validate how many Ad links there
+are available (you may only focus on the first page of the search results
+for the purpose of this task) and the number of the results is greater
+than 0.
+
+
+
